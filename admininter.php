@@ -1,6 +1,5 @@
 <?php
 include('./db/config.php');  //database connection
-
 ?>
 
 <!DOCTYPE html>
@@ -45,19 +44,21 @@ include('./db/config.php');  //database connection
                         <th scope="col"><?php echo $row['description']; ?></th>
                         <th scope="col"><?php echo $row['type']; ?></th>
                         <th scope="col"><img src="./photos/<?php echo $row['image']; ?>" /></th>
-                        <th scope="col"><a href="./userdetaille.php?RefPdt=<?php echo $row['RefPdt']; ?>"><i class="fa-solid fa-eye fa-xl" style="color: #000000; margin: 0px 10px;"></i></a></th>
-                    </tr>;
+                        <th scope="col">
+                            <a href="/admindetaille.php?RefPdt=<?php echo $row['RefPdt']; ?>"><i class="fa-solid fa-eye fa-xl" style="color: #000000; margin: 0px 10px;"></i></a>
+                            <a href="./delete.php?RefPdt=<?php echo $row['RefPdt']; ?>"><i class="fa-solid fa-square-xmark fa-xl" style="color: #000000; margin: 0px 10px;"></i></a>
+                            <a href="./edit.php?RefPdt=<?php echo $row['RefPdt']; ?>"><i class="fa-solid fa-rotate-right fa-xl" style="color: #000000; margin: 0px 10px;"></i></a>
+                        </th>
+                    </tr>
                 <?php
                 }
-
-
                 ?>
             </tbody>
         </table>
+        <a type="button" class="btn btn-info" href="./add.php">Ajouter Un produit</a>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
 </body>
 
 </html>
