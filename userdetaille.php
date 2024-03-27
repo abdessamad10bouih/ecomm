@@ -2,6 +2,8 @@
 include('./db/config.php');
 if (isset($_GET['RefPdt'])) {
     $ref = mysqli_real_escape_string($conn, $_GET['RefPdt']);
+
+    // Fetch product details based on the reference
     $sql = "SELECT * FROM `produit` WHERE RefPdt = '$ref'";
     $result = mysqli_query($conn, $sql);
 
@@ -56,9 +58,11 @@ if (isset($_GET['RefPdt'])) {
         </html>
 <?php
     } else {
+        // Product not found
         echo "Product not found.";
     }
 } else {
+    // No product reference provided in the URL
     echo "No product reference provided.";
 }
 ?>
